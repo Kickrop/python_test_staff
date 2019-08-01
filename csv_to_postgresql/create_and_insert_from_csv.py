@@ -31,3 +31,6 @@ def insert():
         cur.copy_expert('COPY statregistr.test_2 FROM STDIN WITH CSV HEADER', f)
     conn.commit()
     print('Inserted successfully')
+
+create_table_with_csvheader()
+insert()
