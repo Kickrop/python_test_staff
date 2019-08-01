@@ -26,11 +26,11 @@ def create_table_with_csvheader():
 #cur.execute("select * from statregistr.s_okfs;")
 #for record in cur:
 #    print(record)
-def insert():
+def insert_into_table():
     with open('s_okopf.csv', 'r') as f:
         cur.copy_expert('COPY statregistr.test_2 FROM STDIN WITH CSV HEADER', f)
     conn.commit()
     print('Inserted successfully')
 
 create_table_with_csvheader()
-insert()
+insert_into_table()
