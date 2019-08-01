@@ -1,0 +1,14 @@
+*.xlsx
+*.txt
+*.csv
+*.xml
+*.gz
+*.pyc
+*.html
+*.accdb
+*.exe
+*.bat
+*.cfg
+*.zip
+vsearch4web
+mymodules
