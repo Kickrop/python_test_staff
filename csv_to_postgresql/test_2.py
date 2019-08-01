@@ -6,17 +6,20 @@ from tqdm import tqdm
 
 conn = psycopg2.connect(host="172.18.207.27", dbname="cases", user="dmartynov", password="LKhjkljklkwJBJjkw%499lekc$68")
 cur = conn.cursor()
-table_name = ''
+table_name = 'test_2'
 
-cur.execute("select * from statregistr.s_okfs;")
-for record in cur:
-    print(record)
+#cur.execute("select * from statregistr.s_okfs;")
+#for record in cur:
+#    print(record)
+def insert():
+    with open('s_okopf.csv', 'r') as f:
+        cur.copy_expert('COPY statregistr.test_2 FROM STDIN WITH CSV HEADER', f)
+    conn.commit()
 
 def create_table():
     cur.execute("""
     CREATE TABLE IF NOT EXISTS statregistr.{}(
-    id serial,
-    test1 text NOT NULL,
+    okopf text NOT NULL,
     name text NOT NULL
     )
     """.format(table_name))
@@ -40,5 +43,6 @@ def insert_into_table():
 #        next(f)
 #        cur.copy_from(f, 'statregistr.s_okopf', sep=';')
 #    conn.commit()
-#create_table()
+create_table()
+insert()
 #insert_into_table()
