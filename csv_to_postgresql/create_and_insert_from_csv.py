@@ -1,8 +1,9 @@
 import psycopg2
 import csv
+import settings
 from tqdm import tqdm
 
-conn = psycopg2.connect(host="172.18.207.27", dbname="cases", user="dmartynov", password="LKhjkljklkwJBJjkw%499lekc$68")
+conn = psycopg2.connect(host=settings.sr_host, dbname="cases", user=settings.sr_user, password=settings.sr_password)
 cur = conn.cursor()
 table_name = 'test_3'
 file_name = ''
