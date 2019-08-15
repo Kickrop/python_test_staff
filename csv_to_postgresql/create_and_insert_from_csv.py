@@ -1,12 +1,13 @@
 import psycopg2
 import csv
-import settings
+import private
 from tqdm import tqdm
 
-conn = psycopg2.connect(host=settings.sr_host, dbname="cases", user=settings.sr_user, password=settings.sr_password)
+conn = psycopg2.connect(host=private.sr_host, dbname=private.sr_dbname, user=private.sr_user, password=private.sr_password)
 cur = conn.cursor()
-table_name = 'test_3'
-file_name = ''
+
+table_name = 'test_4'
+file_name = 's_status_okpo.csv'
 
 def create_table_with_csvheader():
     with open(file_name, 'r') as f:
