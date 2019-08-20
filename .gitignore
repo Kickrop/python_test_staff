@@ -13,4 +13,4 @@
 vsearch4web
 mymodules
 ifora
-private.py
+csv_to_postgresql/private.py
